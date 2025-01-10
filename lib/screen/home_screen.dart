@@ -37,9 +37,10 @@ class _HomeScreenState extends State<HomeScreen> {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        const Icon(Icons.share, color: Color(0xFFFFFFFF)),
+                        const Icon(Icons.compare_rounded,
+                            color: Color(0xFFFFFFFF)),
                         Text(
-                          'ShareBible',
+                          'Tsena',
                           style: GoogleFonts.inter(
                             fontSize: 20.0,
                             fontWeight: FontWeight.bold,
