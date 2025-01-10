@@ -13,7 +13,7 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   // Text controllers
-  final _emailController = TextEditingController();
+  final _searchController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -51,9 +51,9 @@ class _HomeScreenState extends State<HomeScreen> {
                     ),
                     MyTextFormField(
                       labelText: 'Item name',
-                      icon: Icons.email_outlined,
+                      icon: Icons.search_rounded,
                       obscureText: false,
-                      controller: _emailController,
+                      controller: _searchController,
                       validator: (value) {
                         if (value == null || value.isEmpty) {
                           return 'This field is required';
