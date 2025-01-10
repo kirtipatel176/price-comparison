@@ -27,18 +27,24 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
           child: Stack(
             children: [
-              // First Positioned widget for ShareBible text and logo
+              // First Positioned widget here
               Positioned(
                 left: 0.0,
                 right: 0.0,
                 top: 60.0,
+
+                // Column for first expanded widget items
                 child: Column(
                   children: [
+                    // Row for compare icon and tsena text
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
+                        // Compare icon
                         const Icon(Icons.compare_rounded,
                             color: Color(0xFFFFFFFF)),
+
+                        // Tsena text
                         Text(
                           'Tsena',
                           style: GoogleFonts.inter(
@@ -49,6 +55,8 @@ class _HomeScreenState extends State<HomeScreen> {
                         ),
                       ],
                     ),
+
+                    // Textformfield for entering item for search
                     MyTextFormField(
                       labelText: 'Item name',
                       icon: Icons.search_rounded,
@@ -61,6 +69,8 @@ class _HomeScreenState extends State<HomeScreen> {
                         return null;
                       },
                     ),
+
+                    // Button for performing search
                     LargeButton(
                       icon: Icons.shopping_cart_rounded,
                       text: 'Search Item',
@@ -69,7 +79,8 @@ class _HomeScreenState extends State<HomeScreen> {
                   ],
                 ),
               ),
-              // Positioned widget for background container
+
+              // Second Positioned widget here
               Positioned(
                 left: 0.0,
                 right: 0.0,
@@ -80,13 +91,18 @@ class _HomeScreenState extends State<HomeScreen> {
                   decoration: const BoxDecoration(color: Color(0xFFF5F5F5)),
                 ),
               ),
-              // Positioned widget for card
+
+              // Third Positioned widget for card (displaying details of single item)
               Positioned(
                 left: 0.0,
                 right: 0.0,
                 top: 260.0,
+
+                // Padding around container for displaying single item details
                 child: Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 20.0),
+
+                  // Container for displaying dingle item details
                   child: Container(
                     padding: const EdgeInsets.all(20.0),
                     width: MediaQuery.of(context).size.width,
@@ -98,7 +114,12 @@ class _HomeScreenState extends State<HomeScreen> {
                         width: 0.4,
                       ),
                     ),
-                    child: const Text('data'),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        const Text('data'),
+                      ],
+                    ),
                   ),
                 ),
               ),
