@@ -62,6 +62,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       },
                     ),
                     LargeButton(
+                      icon: Icons.shopping_cart_rounded,
                       text: 'Search Item',
                       function: () {},
                     ),
