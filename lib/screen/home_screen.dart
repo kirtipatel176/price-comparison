@@ -114,9 +114,12 @@ class _HomeScreenState extends State<HomeScreen> {
                         width: 0.4,
                       ),
                     ),
+
+                    // Column for displaying the item name, price and image
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
+                        // RichText for displaying the item name and price
                         RichText(
                           textAlign: TextAlign.center,
                           text: TextSpan(
