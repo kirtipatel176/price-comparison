@@ -15,6 +15,19 @@ class _HomeScreenState extends State<HomeScreen> {
   // Text controllers
   final _searchController = TextEditingController();
 
+  final List<Map<String, dynamic>> itemList = [
+    {
+      'name': 'Headphones',
+      'price': 120.0,
+      'image': 'assets/images/headset2.png',
+    },
+    {
+      'name': 'Smartwatch',
+      'price': 199.99,
+      'image': 'assets/images/headset2.png',
+    },
+  ];
+
   @override
   Widget build(BuildContext context) {
     return KeyboardVisibilityBuilder(builder: (context, isKeyboardVisible) {
@@ -111,7 +124,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   child: Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 20.0),
 
-                    // Container for displaying dingle item details
+                    // Container for displaying single item details
                     child: Container(
                       padding: const EdgeInsets.all(20.0),
                       width: MediaQuery.of(context).size.width,
@@ -171,6 +184,65 @@ class _HomeScreenState extends State<HomeScreen> {
                           ),
                         ],
                       ),
+                    ),
+                  ),
+                ),
+
+                // Fourth Positioned for other items that match from other retailers
+                Positioned(
+                  left: 0.0,
+                  right: 0.0,
+                  bottom: 60.0,
+                  child: SizedBox(
+                    height: 220.0,
+                    child: ListView.builder(
+                      scrollDirection: Axis.horizontal,
+                      itemCount: itemList.length,
+                      itemBuilder: (context, index) {
+                        return Padding(
+                          padding: const EdgeInsets.only(
+                            top: 20.0,
+                            left: 20.0,
+                          ),
+                          child: Container(
+                            padding: const EdgeInsets.all(20.0),
+                            width: 250.0,
+                            decoration: BoxDecoration(
+                              color: const Color(0xFFFFFFFF),
+                              borderRadius: BorderRadius.circular(5.0),
+                              border: Border.all(
+                                color: const Color(0xFFD3D3D3),
+                                width: 0.4,
+                              ),
+                            ),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                // Item Name
+                                Text(
+                                  itemList[index]['name'],
+                                  style: const TextStyle(
+                                    fontSize: 12.0,
+                                    fontWeight: FontWeight.bold,
+                                    color: Colors.black,
+                                  ),
+                                  maxLines: 1,
+                                  overflow: TextOverflow.ellipsis,
+                                ),
+                                const SizedBox(height: 8.0),
+                                // Item Price
+                                Text(
+                                  '\$${itemList[index]['price']}',
+                                  style: const TextStyle(
+                                    fontSize: 12.0,
+                                    color: Colors.green,
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        );
+                      },
                     ),
                   ),
                 ),
