@@ -17,25 +17,22 @@ class _HomeScreenState extends State<HomeScreen> {
 
   final List<Map<String, dynamic>> itemList = [
     {
-      'shop': 'Headphones',
       'price': 120.0,
       'star': 5,
       'reviews': 487,
-      'image': 'assets/images/headset2.png',
+      'shop': 'assets/images/amazon.png',
     },
     {
-      'shop': 'Smartwatch',
       'price': 199.99,
       'star': 4,
       'reviews': 928,
-      'image': 'assets/images/headset2.png',
+      'shop': 'assets/images/walmart.png',
     },
     {
-      'shop': 'Smartwatch',
       'price': 199.99,
       'star': 4,
       'reviews': 126,
-      'image': 'assets/images/headset2.png',
+      'shop': 'assets/images/ebay.png',
     },
   ];
 
@@ -180,17 +177,13 @@ class _HomeScreenState extends State<HomeScreen> {
                           // Image of item in a padding
                           Padding(
                             padding: const EdgeInsets.only(top: 10.0),
-                            child: Container(
+
+                            // Image of item here
+                            child: Image.asset(
+                              "assets/images/headset.png",
                               width: MediaQuery.of(context).size.width,
                               height: 200.0,
-                              decoration: const BoxDecoration(
-                                image: DecorationImage(
-                                  image: AssetImage(
-                                    "assets/images/headset.png",
-                                  ),
-                                  fit: BoxFit.contain,
-                                ),
-                              ),
+                              fit: BoxFit.contain,
                             ),
                           ),
                         ],
@@ -229,25 +222,29 @@ class _HomeScreenState extends State<HomeScreen> {
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                // Item Name
-                                Text(
-                                  itemList[index]['shop'],
-                                  style: const TextStyle(
-                                    fontSize: 12.0,
-                                    fontWeight: FontWeight.bold,
-                                    color: Colors.black,
-                                  ),
-                                  maxLines: 1,
-                                  overflow: TextOverflow.ellipsis,
-                                ),
-                                const SizedBox(height: 8.0),
-                                // Item Price
-                                Text(
-                                  '\$${itemList[index]['price']}',
-                                  style: const TextStyle(
-                                    fontSize: 12.0,
-                                    color: Colors.green,
-                                  ),
+                                Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    Column(
+                                      children: [
+                                        Image.asset(
+                                          itemList[index]['shop'],
+                                          width: 50.0,
+                                          fit: BoxFit.cover,
+                                        ),
+
+                                        // Item Price
+                                        Text(
+                                          '\$${itemList[index]['price']}',
+                                          style: const TextStyle(
+                                            fontSize: 12.0,
+                                            color: Colors.green,
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ],
                                 ),
                               ],
                             ),
