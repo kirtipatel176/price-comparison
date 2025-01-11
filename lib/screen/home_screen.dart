@@ -251,6 +251,19 @@ class _HomeScreenState extends State<HomeScreen> {
                                       crossAxisAlignment:
                                           CrossAxisAlignment.start,
                                       children: [
+                                        // Star Rating
+                                        Row(
+                                          children: List.generate(
+                                            itemList[index]['star'],
+                                            (starIndex) => const Icon(
+                                              Icons.star,
+                                              color: Colors.amber,
+                                              size: 16.3,
+                                            ),
+                                          ),
+                                        ),
+
+                                        // Item reviews
                                         Text(
                                           '${itemList[index]['reviews']} REVIEWS',
                                           style: GoogleFonts.inter(
