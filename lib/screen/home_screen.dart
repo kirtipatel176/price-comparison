@@ -48,13 +48,16 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final screenHeight = MediaQuery.of(context).size.height;
+    final screenWidth = MediaQuery.of(context).size.width;
+
     return KeyboardVisibilityBuilder(builder: (context, isKeyboardVisible) {
       return Scaffold(
         backgroundColor: const Color(0xFF3B5998),
         resizeToAvoidBottomInset: true,
         body: Container(
-          width: MediaQuery.of(context).size.width,
-          height: MediaQuery.of(context).size.height,
+          width: screenWidth,
+          height: screenHeight,
           decoration: BoxDecoration(
             image: DecorationImage(
               image: AssetImage("assets/images/background.png"),
@@ -69,9 +72,9 @@ class _HomeScreenState extends State<HomeScreen> {
               children: [
                 // First Positioned widget here
                 Positioned(
-                  left: 0.0,
-                  right: 0.0,
-                  top: 60.0,
+                  top: screenHeight * 0.07,
+                  left: screenWidth * 0.0,
+                  right: screenWidth * 0.0,
 
                   // Column for first expanded widget items
                   child: Column(
