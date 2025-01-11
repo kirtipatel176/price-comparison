@@ -23,8 +23,7 @@ class _HomeScreenState extends State<HomeScreen> {
         url,
         headers: {
           'x-rapidapi-host': 'pricer.p.rapidapi.com',
-          'x-rapidapi-key':
-              '6f79c5adb8mshe152e685030a102p1bbce1jsn7c9d2a5eacfb',
+          'x-rapidapi-key': '',
         },
       );
 
