@@ -1,8 +1,11 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:tsena/utility/large_button.dart';
 import 'package:tsena/utility/small_button.dart';
 import 'package:tsena/utility/textformfield.dart';
+import 'package:http/http.dart' as http;
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -14,6 +17,7 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   // Text controllers
   final _searchController = TextEditingController();
+  List<dynamic> _searchResults = [];
 
   final List<Map<String, dynamic>> itemList = [
     {
@@ -44,6 +48,35 @@ class _HomeScreenState extends State<HomeScreen> {
       'shipping': 'Shipping At Fee',
     },
   ];
+
+  //  searchProduct function
+  Future<void> searchProduct(String query) async {
+    final url = Uri.parse('https://pricer.p.rapidapi.com/str?q=$query');
+
+    try {
+      final response = await http.get(
+        url,
+        headers: {
+          'x-rapidapi-host': 'pricer.p.rapidapi.com',
+          'x-rapidapi-key': '',
+        },
+      );
+
+      // Print
+      print(response.body);
+
+      if (response.statusCode == 200) {
+        List<dynamic> data = jsonDecode(response.body);
+        setState(() {
+          _searchResults = data;
+        });
+      } else {
+        print('Request failed with status: ${response.statusCode}.');
+      }
+    } catch (e) {
+      print('Error occurred: $e');
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -99,19 +132,21 @@ class _HomeScreenState extends State<HomeScreen> {
                       icon: Icons.search_rounded,
                       obscureText: false,
                       controller: _searchController,
-                      validator: (value) {
-                        if (value == null || value.isEmpty) {
-                          return 'This field is required';
-                        }
-                        return null;
-                      },
                     ),
 
                     // Button for performing search
                     LargeButton(
                       icon: Icons.shopping_cart_rounded,
                       text: 'Search Item',
-                      function: () {},
+                      function: () {
+                        // Call the searchProduct function with the query from the TextField
+                        String query = _searchController.text;
+                        if (query.isNotEmpty) {
+                          searchProduct(query);
+                        } else {
+                          print('Please enter a search query');
+                        }
+                      },
                     ),
                   ],
                 ),

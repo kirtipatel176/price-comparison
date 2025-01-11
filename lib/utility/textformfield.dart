@@ -9,7 +9,6 @@ class MyTextFormField extends StatelessWidget {
     this.obscureText,
     this.suffixIcon,
     this.controller,
-    this.validator,
   });
 
   final labelText;
@@ -17,7 +16,6 @@ class MyTextFormField extends StatelessWidget {
   final suffixIcon;
   final obscureText;
   final controller;
-  final validator;
 
   @override
   Widget build(BuildContext context) {
@@ -26,7 +24,6 @@ class MyTextFormField extends StatelessWidget {
       child: TextFormField(
         obscureText: obscureText,
         controller: controller,
-        validator: validator,
         decoration: InputDecoration(
           enabledBorder: OutlineInputBorder(
             borderSide: const BorderSide(color: Color(0xFFFFFFFF), width: 1.0),
