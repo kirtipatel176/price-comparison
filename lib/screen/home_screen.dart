@@ -300,7 +300,7 @@ class _HomeScreenState extends State<HomeScreen> {
                             left: 20.0,
                           ),
                           child: Container(
-                            padding: const EdgeInsets.all(20.0),
+                            padding: const EdgeInsets.only(top: 20.0),
                             width: 250.0,
                             decoration: BoxDecoration(
                               color: const Color(0xFFFFFFFF),
@@ -313,67 +313,73 @@ class _HomeScreenState extends State<HomeScreen> {
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
-                                  children: [
-                                    Column(
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.start,
-                                      children: [
-                                        // Item shop
-                                        Image.asset(
-                                          itemList[index]['shop'],
-                                          width: 60.0,
-                                          fit: BoxFit.cover,
-                                        ),
+                                Padding(
+                                  padding: const EdgeInsets.symmetric(
+                                      horizontal: 20.0),
+                                  child: Row(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
+                                    children: [
+                                      Column(
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
+                                        children: [
+                                          // Item shop
+                                          Image.asset(
+                                            itemList[index]['shop'],
+                                            width: 60.0,
+                                            fit: BoxFit.cover,
+                                          ),
 
-                                        // Item Price
-                                        Text(
-                                          '\$${itemList[index]['price']}',
-                                          style: GoogleFonts.inter(
-                                              fontSize: 16.0,
-                                              fontWeight: FontWeight.w500,
-                                              color: Color(0xFF696969)),
-                                        ),
-                                      ],
-                                    ),
-                                    Column(
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.start,
-                                      children: [
-                                        // Star Rating
-                                        Row(
-                                          children: List.generate(
-                                            itemList[index]['star'],
-                                            (starIndex) => const Icon(
-                                              Icons.star,
-                                              color: Colors.amber,
-                                              size: 16.3,
+                                          // Item Price
+                                          Text(
+                                            '\$${itemList[index]['price']}',
+                                            style: GoogleFonts.inter(
+                                                fontSize: 16.0,
+                                                fontWeight: FontWeight.w500,
+                                                color: Color(0xFF696969)),
+                                          ),
+                                        ],
+                                      ),
+                                      Column(
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
+                                        children: [
+                                          // Star Rating
+                                          Row(
+                                            children: List.generate(
+                                              itemList[index]['star'],
+                                              (starIndex) => const Icon(
+                                                Icons.star,
+                                                color: Colors.amber,
+                                                size: 16.3,
+                                              ),
                                             ),
                                           ),
-                                        ),
 
-                                        // Item reviews
-                                        Text(
-                                          '${itemList[index]['reviews']} REVIEWS',
-                                          style: GoogleFonts.inter(
-                                            fontSize: 12.0,
-                                            fontWeight: FontWeight.w500,
-                                            color: Color(0xFFFF6F61),
-                                            decoration:
-                                                TextDecoration.underline,
-                                            decorationColor: Color(0xFFFF6F61),
+                                          // Item reviews
+                                          Text(
+                                            '${itemList[index]['reviews']} REVIEWS',
+                                            style: GoogleFonts.inter(
+                                              fontSize: 12.0,
+                                              fontWeight: FontWeight.w500,
+                                              color: Color(0xFFFF6F61),
+                                              decoration:
+                                                  TextDecoration.underline,
+                                              decorationColor:
+                                                  Color(0xFFFF6F61),
+                                            ),
                                           ),
-                                        ),
-                                      ],
-                                    ),
-                                  ],
+                                        ],
+                                      ),
+                                    ],
+                                  ),
                                 ),
 
                                 // Other detials in a row
                                 Padding(
-                                  padding: const EdgeInsets.only(top: 20.0),
+                                  padding: const EdgeInsets.only(
+                                      top: 20.0, left: 20.0, right: 20.0),
                                   child: Row(
                                     mainAxisAlignment:
                                         MainAxisAlignment.spaceBetween,
