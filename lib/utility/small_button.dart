@@ -17,15 +17,11 @@ class SmallButton extends StatelessWidget {
         child: ClipRRect(
           borderRadius: BorderRadius.circular(5.0),
           child: Container(
-            height: 40.0,
+            height: 50.0,
             color: Color(0xFFFF6F61),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Icon(icon, color: Color(0xFFFFFFFF)),
-                SizedBox(
-                  width: 3.0,
-                ),
                 Text(
                   text,
                   style: GoogleFonts.rubik(
@@ -34,6 +30,10 @@ class SmallButton extends StatelessWidget {
                     color: Color(0xFFFFFFFF),
                   ),
                 ),
+                SizedBox(
+                  width: 3.0,
+                ),
+                Icon(icon, color: Color(0xFFFFFFFF)),
               ],
             ),
           ),
