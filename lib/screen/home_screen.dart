@@ -21,18 +21,27 @@ class _HomeScreenState extends State<HomeScreen> {
       'star': 5,
       'reviews': 487,
       'shop': 'assets/images/amazon.png',
+      'stockType': 'In Stock',
+      'numberOfDays': 1,
+      'shipping': 'Free Shipping',
     },
     {
       'price': 199.99,
       'star': 4,
       'reviews': 928,
       'shop': 'assets/images/walmart.png',
+      'stockType': 'Sold Out',
+      'numberOfDays': 4,
+      'shipping': 'Free Shipping',
     },
     {
       'price': 199.99,
       'star': 4,
       'reviews': 126,
       'shop': 'assets/images/ebay.png',
+      'stockType': 'In Stock',
+      'numberOfDays': 2,
+      'shipping': 'Shipping At Fee',
     },
   ];
 
@@ -278,6 +287,13 @@ class _HomeScreenState extends State<HomeScreen> {
                                       ],
                                     ),
                                   ],
+                                ),
+
+                                // Other detials
+                                Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                  children: [],
                                 ),
                               ],
                             ),
