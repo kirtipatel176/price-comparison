@@ -158,28 +158,85 @@ class _HomeScreenState extends State<HomeScreen> {
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          // RichText for displaying the item name and price
-                          RichText(
-                            textAlign: TextAlign.center,
-                            text: TextSpan(
-                              style: GoogleFonts.inter(height: 1.2),
-                              children: <TextSpan>[
-                                TextSpan(
-                                  text:
-                                      '9 PLAY by Bang & Olufsen Beoplay H4 \n',
-                                  style: GoogleFonts.inter(
-                                      fontSize: 18.0,
-                                      fontWeight: FontWeight.bold,
-                                      color: Color(0xFF000000)),
+                          Container(
+                            height: 40.0,
+                            width: MediaQuery.of(context).size.width,
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.only(
+                                topLeft: Radius.circular(0.5),
+                                topRight: Radius.circular(0.5),
+                              ),
+                              border: Border(
+                                bottom: BorderSide(
+                                  color: const Color(0xFFD3D3D3),
+                                  width: 0.4,
                                 ),
-                                TextSpan(
-                                  text: '\$99.99',
-                                  style: GoogleFonts.inter(
-                                      fontSize: 14.0,
-                                      fontWeight: FontWeight.w500,
-                                      color: Color(0xFF696969)),
+                              ),
+                            ),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Container(
+                                  width: 156.0,
+                                  decoration: BoxDecoration(
+                                    border: Border(
+                                      right: BorderSide(
+                                        color: const Color(0xFFD3D3D3),
+                                        width: 0.4,
+                                      ),
+                                    ),
+                                  ),
+                                  child: Center(child: Text('data')),
+                                ),
+                                Container(
+                                  width: 156.0,
+                                  decoration:
+                                      BoxDecoration(color: Color(0xFFFFFFFF)),
+                                  child: Row(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      Text(
+                                        'Next',
+                                        style: GoogleFonts.inter(
+                                          color: Color(0xFF696969),
+                                        ),
+                                      ),
+                                      Icon(
+                                        Icons.keyboard_arrow_right,
+                                        color: Color(0xFF696969),
+                                      ),
+                                    ],
+                                  ),
                                 ),
                               ],
+                            ),
+                          ),
+                          // RichText for displaying the item name and price
+                          Padding(
+                            padding: const EdgeInsets.only(top: 20.0),
+                            child: RichText(
+                              textAlign: TextAlign.center,
+                              text: TextSpan(
+                                style: GoogleFonts.inter(height: 1.2),
+                                children: <TextSpan>[
+                                  TextSpan(
+                                    text:
+                                        '9 PLAY by Bang & Olufsen Beoplay H4 \n',
+                                    style: GoogleFonts.inter(
+                                        fontSize: 18.0,
+                                        fontWeight: FontWeight.bold,
+                                        color: Color(0xFF000000)),
+                                  ),
+                                  TextSpan(
+                                    text: '\$99.99',
+                                    style: GoogleFonts.inter(
+                                      fontSize: 14.0,
+                                      fontWeight: FontWeight.w500,
+                                      color: Color(0xFF696969),
+                                    ),
+                                  ),
+                                ],
+                              ),
                             ),
                           ),
 
@@ -205,9 +262,9 @@ class _HomeScreenState extends State<HomeScreen> {
                 Positioned(
                   left: 0.0,
                   right: 0.0,
-                  bottom: 60.0,
+                  bottom: 20.0,
                   child: SizedBox(
-                    height: 220.0,
+                    height: 200.0,
                     child: ListView.builder(
                       scrollDirection: Axis.horizontal,
                       itemCount: itemList.length,
