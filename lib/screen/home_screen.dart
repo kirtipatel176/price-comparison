@@ -241,7 +241,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                         Text(
                                           '\$${itemList[index]['price']}',
                                           style: GoogleFonts.inter(
-                                              fontSize: 14.0,
+                                              fontSize: 16.0,
                                               fontWeight: FontWeight.w500,
                                               color: Color(0xFF696969)),
                                         ),
@@ -250,7 +250,19 @@ class _HomeScreenState extends State<HomeScreen> {
                                     Column(
                                       crossAxisAlignment:
                                           CrossAxisAlignment.start,
-                                      children: [],
+                                      children: [
+                                        Text(
+                                          '${itemList[index]['reviews']} REVIEWS',
+                                          style: GoogleFonts.inter(
+                                            fontSize: 12.0,
+                                            fontWeight: FontWeight.w500,
+                                            color: Color(0xFFFF6F61),
+                                            decoration:
+                                                TextDecoration.underline,
+                                            decorationColor: Color(0xFFFF6F61),
+                                          ),
+                                        ),
+                                      ],
                                     ),
                                   ],
                                 ),
