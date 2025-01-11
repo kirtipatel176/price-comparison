@@ -126,9 +126,9 @@ class _HomeScreenState extends State<HomeScreen> {
 
                   // Second Positioned widget here
                   Positioned(
-                    left: 0.0,
-                    right: 0.0,
-                    top: 300.0,
+                    top: screenHeight * 0.35,
+                    left: screenWidth * 0.0,
+                    right: screenWidth * 0.0,
                     child: Container(
                       width: MediaQuery.of(context).size.width,
                       height: MediaQuery.of(context).size.height,
@@ -138,9 +138,9 @@ class _HomeScreenState extends State<HomeScreen> {
 
                   // Third Positioned widget for card (displaying details of single item)
                   Positioned(
-                    left: 0.0,
-                    right: 0.0,
-                    top: 260.0,
+                    top: screenHeight * 0.31,
+                    left: screenWidth * 0.0,
+                    right: screenWidth * 0.0,
 
                     // Padding around container for displaying single item details
                     child: Padding(
