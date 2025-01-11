@@ -55,14 +55,16 @@ class _HomeScreenState extends State<HomeScreen> {
     if (_searchController.text.trim().isEmpty) {
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
-            content: Center(
-                child: Text(
-          'What are you searching?',
-          style: GoogleFonts.inter(
-            fontSize: 14.0,
-            fontWeight: FontWeight.w400,
+          content: Center(
+            child: Text(
+              'What are you searching?',
+              style: GoogleFonts.inter(
+                fontSize: 14.0,
+                fontWeight: FontWeight.w400,
+              ),
+            ),
           ),
-        ))),
+        ),
       );
       return;
     }
@@ -87,9 +89,35 @@ class _HomeScreenState extends State<HomeScreen> {
           _searchResults = data;
         });
       } else {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            content: Center(
+              child: Text(
+                'Request failed with status: ${response.statusCode}.',
+                style: GoogleFonts.inter(
+                  fontSize: 14.0,
+                  fontWeight: FontWeight.w400,
+                ),
+              ),
+            ),
+          ),
+        );
         print('Request failed with status: ${response.statusCode}.');
       }
     } catch (e) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Center(
+            child: Text(
+              'Error occurred: $e.',
+              style: GoogleFonts.inter(
+                fontSize: 14.0,
+                fontWeight: FontWeight.w400,
+              ),
+            ),
+          ),
+        ),
+      );
       print('Error occurred: $e');
     }
   }
