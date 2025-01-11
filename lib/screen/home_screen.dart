@@ -227,22 +227,30 @@ class _HomeScreenState extends State<HomeScreen> {
                                       MainAxisAlignment.spaceBetween,
                                   children: [
                                     Column(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
                                       children: [
+                                        // Item shop
                                         Image.asset(
                                           itemList[index]['shop'],
-                                          width: 50.0,
+                                          width: 60.0,
                                           fit: BoxFit.cover,
                                         ),
 
                                         // Item Price
                                         Text(
                                           '\$${itemList[index]['price']}',
-                                          style: const TextStyle(
-                                            fontSize: 12.0,
-                                            color: Colors.green,
-                                          ),
+                                          style: GoogleFonts.inter(
+                                              fontSize: 14.0,
+                                              fontWeight: FontWeight.w500,
+                                              color: Color(0xFF696969)),
                                         ),
                                       ],
+                                    ),
+                                    Column(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [],
                                     ),
                                   ],
                                 ),
