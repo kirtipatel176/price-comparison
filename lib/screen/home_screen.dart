@@ -1,6 +1,7 @@
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:tsena/utility/large_button.dart';
 import 'package:tsena/utility/small_button.dart';
@@ -76,7 +77,7 @@ class _HomeScreenState extends State<HomeScreen> {
         url,
         headers: {
           'x-rapidapi-host': 'pricer.p.rapidapi.com',
-          'x-rapidapi-key': '',
+          'x-rapidapi-key': '${dotenv.env['token']}',
         },
       );
 
