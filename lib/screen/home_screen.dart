@@ -51,6 +51,22 @@ class _HomeScreenState extends State<HomeScreen> {
 
   //  searchProduct function
   Future<void> searchProduct(String query) async {
+    // Ensure that _searchController is not empty
+    if (_searchController.text.trim().isEmpty) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+            content: Center(
+                child: Text(
+          'What are you searching?',
+          style: GoogleFonts.inter(
+            fontSize: 14.0,
+            fontWeight: FontWeight.w400,
+          ),
+        ))),
+      );
+      return;
+    }
+
     final url = Uri.parse('https://pricer.p.rapidapi.com/str?q=$query');
 
     try {
@@ -141,11 +157,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       function: () {
                         // Call the searchProduct function with the query from the TextField
                         String query = _searchController.text;
-                        if (query.isNotEmpty) {
-                          searchProduct(query);
-                        } else {
-                          print('Please enter a search query');
-                        }
+                        searchProduct(query);
                       },
                     ),
                   ],
