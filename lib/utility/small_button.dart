@@ -11,7 +11,7 @@ class SmallButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(top: 20.0, left: 20.0, right: 20.0),
+      padding: const EdgeInsets.only(top: 20.0),
       child: GestureDetector(
         onTap: function,
         child: ClipRRect(
