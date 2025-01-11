@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_keyboard_visibility/flutter_keyboard_visibility.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:tsena/utility/large_button.dart';
+import 'package:tsena/utility/small_button.dart';
 import 'package:tsena/utility/textformfield.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -411,6 +412,11 @@ class _HomeScreenState extends State<HomeScreen> {
                                 ),
 
                                 // Small button here
+                                SmallButton(
+                                  icon: Icons.shopping_cart_rounded,
+                                  text: 'Visit Site',
+                                  function: () {},
+                                ),
                               ],
                             ),
                           ),

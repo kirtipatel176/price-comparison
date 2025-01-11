@@ -17,7 +17,7 @@ class SmallButton extends StatelessWidget {
         child: ClipRRect(
           borderRadius: BorderRadius.circular(5.0),
           child: Container(
-            height: 56.0,
+            height: 40.0,
             color: Color(0xFFFF6F61),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
