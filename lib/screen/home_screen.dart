@@ -376,7 +376,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                   ),
                                 ),
 
-                                // Other detials in a row
+                                // Other details in a row
                                 Padding(
                                   padding: const EdgeInsets.only(
                                       top: 20.0, left: 20.0, right: 20.0),
@@ -417,9 +417,12 @@ class _HomeScreenState extends State<HomeScreen> {
                                   ),
                                 ),
 
-                                // Small button here
+                                // Spacer to push the button to the bottom
+                                Spacer(),
+
+                                // Small Button here
                                 SmallButton(
-                                  icon: Icons.shopping_cart_rounded,
+                                  icon: Icons.open_in_browser_rounded,
                                   text: 'Visit Site',
                                   function: () {},
                                 ),
