@@ -289,11 +289,44 @@ class _HomeScreenState extends State<HomeScreen> {
                                   ],
                                 ),
 
-                                // Other detials
-                                Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
-                                  children: [],
+                                // Other detials in a row
+                                Padding(
+                                  padding: const EdgeInsets.only(top: 20.0),
+                                  child: Row(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
+                                    children: [
+                                      // Item Stock Type
+                                      Text(
+                                        itemList[index]['stockType'].toString(),
+                                        style: GoogleFonts.inter(
+                                          fontSize: 12.0,
+                                          fontWeight: FontWeight.w200,
+                                          color: Color(0xFF696969),
+                                        ),
+                                      ),
+
+                                      // Item Number of Day(s)
+                                      Text(
+                                        '${itemList[index]['numberOfDays']} Day(s)',
+                                        style: GoogleFonts.inter(
+                                          fontSize: 12.0,
+                                          fontWeight: FontWeight.w200,
+                                          color: Color(0xFF696969),
+                                        ),
+                                      ),
+
+                                      // Item Shipping
+                                      Text(
+                                        itemList[index]['shipping'].toString(),
+                                        style: GoogleFonts.inter(
+                                          fontSize: 12.0,
+                                          fontWeight: FontWeight.w200,
+                                          color: Color(0xFF696969),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
                                 ),
                               ],
                             ),
