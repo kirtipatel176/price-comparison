@@ -17,13 +17,24 @@ class _HomeScreenState extends State<HomeScreen> {
 
   final List<Map<String, dynamic>> itemList = [
     {
-      'name': 'Headphones',
+      'shop': 'Headphones',
       'price': 120.0,
+      'star': 5,
+      'reviews': 487,
       'image': 'assets/images/headset2.png',
     },
     {
-      'name': 'Smartwatch',
+      'shop': 'Smartwatch',
       'price': 199.99,
+      'star': 4,
+      'reviews': 928,
+      'image': 'assets/images/headset2.png',
+    },
+    {
+      'shop': 'Smartwatch',
+      'price': 199.99,
+      'star': 4,
+      'reviews': 126,
       'image': 'assets/images/headset2.png',
     },
   ];
@@ -220,7 +231,7 @@ class _HomeScreenState extends State<HomeScreen> {
                               children: [
                                 // Item Name
                                 Text(
-                                  itemList[index]['name'],
+                                  itemList[index]['shop'],
                                   style: const TextStyle(
                                     fontSize: 12.0,
                                     fontWeight: FontWeight.bold,
