@@ -75,6 +75,10 @@ class _HomeScreenState extends State<HomeScreen> {
       return;
     }
 
+    setState(() {
+      _isLoading = true;
+    });
+
     final url = Uri.parse('https://pricer.p.rapidapi.com/str?q=$query');
 
     try {
