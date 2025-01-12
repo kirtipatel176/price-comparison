@@ -99,6 +99,9 @@ class _HomeScreenState extends State<HomeScreen> {
           _searchResults = data;
         });
       } else {
+        setState(() {
+          _isLoading = true;
+        });
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
             content: Center(
