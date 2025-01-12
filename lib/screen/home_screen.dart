@@ -18,7 +18,11 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   // Text controllers
   final _searchController = TextEditingController();
+
   List<dynamic> _searchResults = [];
+
+  // Loading state
+  bool _isLoading = false;
 
   final List<Map<String, dynamic>> itemList = [
     {
