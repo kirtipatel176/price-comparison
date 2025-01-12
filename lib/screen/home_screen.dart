@@ -19,6 +19,7 @@ class _HomeScreenState extends State<HomeScreen> {
   // Text controllers
   final _searchController = TextEditingController();
 
+  // Search results List
   List<dynamic> _searchResults = [];
 
   // Loading state
