@@ -27,7 +27,9 @@ class NodataScreen extends StatelessWidget {
               width: 0.4,
             ),
           ),
-          child: Center(),
+          child: Center(
+            child: Text('data'),
+          ),
         ),
       ),
     );
