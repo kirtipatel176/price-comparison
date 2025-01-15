@@ -17,7 +17,7 @@ class NodataScreen extends StatelessWidget {
 
         // Container for displaying single item details
         child: Container(
-          height: MediaQuery.of(context).size.height,
+          height: MediaQuery.of(context).size.height / 2,
           padding: const EdgeInsets.all(20.0),
           width: MediaQuery.of(context).size.width,
           decoration: BoxDecoration(
