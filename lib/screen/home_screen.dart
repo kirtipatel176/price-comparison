@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:tsena/screen/loading_screen.dart';
 import 'package:tsena/screen/nodata_screen.dart';
 import 'package:tsena/utility/large_button.dart';
 import 'package:tsena/utility/small_button.dart';
@@ -219,20 +220,7 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
 
               _isLoading
-                  ? Center(
-                      child: Container(
-                        padding: const EdgeInsets.all(12.0),
-                        height: 50.0,
-                        width: 50.0,
-                        decoration: const BoxDecoration(
-                          color: Color(0xFFFFFFFF),
-                          shape: BoxShape.circle,
-                        ),
-                        child: const CircularProgressIndicator(
-                          color: Color(0xFF000000),
-                        ),
-                      ),
-                    )
+                  ? LoadingScreen()
                   : _searchResults.isEmpty
                       ? NodataScreen()
                       : Column(
