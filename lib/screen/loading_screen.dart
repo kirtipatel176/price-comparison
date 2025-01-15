@@ -29,7 +29,18 @@ class LoadingScreen extends StatelessWidget {
             ),
           ),
           child: Center(
-            child: Text('data'),
+            child: Container(
+              padding: const EdgeInsets.all(12.0),
+              height: 50.0,
+              width: 50.0,
+              decoration: const BoxDecoration(
+                color: Color(0xFFFFFFFF),
+                shape: BoxShape.circle,
+              ),
+              child: const CircularProgressIndicator(
+                color: Color(0xFF000000),
+              ),
+            ),
           ),
         ),
       ),
