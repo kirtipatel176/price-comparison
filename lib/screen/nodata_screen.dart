@@ -5,13 +5,13 @@ class NodataScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // Third Positioned widget for card (displaying details of single item)
+    // Third Positioned widget for no data if user have not made a search yet
     return Positioned(
       left: 0.0,
       right: 0.0,
       top: 260.0,
 
-      // Padding around container for displaying single item details
+      // Padding around container for displaying no data
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 20.0),
 
