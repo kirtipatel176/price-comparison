@@ -15,7 +15,7 @@ class NodataScreen extends StatelessWidget {
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 20.0),
 
-        // Container for displaying single item details
+        // Container for displaying no data
         child: Container(
           height: MediaQuery.of(context).size.height / 2 + 100.0,
           padding: const EdgeInsets.all(20.0),
