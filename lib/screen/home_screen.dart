@@ -9,6 +9,7 @@ import 'package:tsena/utility/large_button.dart';
 import 'package:tsena/utility/small_button.dart';
 import 'package:tsena/utility/textformfield.dart';
 import 'package:http/http.dart' as http;
+import 'package:url_launcher/url_launcher.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -276,10 +277,18 @@ class _HomeScreenState extends State<HomeScreen> {
                                               MainAxisAlignment.spaceBetween,
                                           children: [
                                             GestureDetector(
-                                              onTap: () {
+                                              onTap: () async {
                                                 final link =
                                                     _searchResults[0]['link'];
-                                                if (link != null) {}
+                                                if (link != null &&
+                                                    await canLaunchUrl(
+                                                        Uri.parse(link))) {
+                                                  await launchUrl(
+                                                    Uri.parse(link),
+                                                    mode: LaunchMode
+                                                        .externalApplication, // Opens the link in the default browser
+                                                  );
+                                                }
                                               },
                                               child: Container(
                                                 padding:
