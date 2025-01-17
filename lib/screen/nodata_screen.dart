@@ -36,18 +36,27 @@ class NodataScreen extends StatelessWidget {
                 style: GoogleFonts.inter(height: 1.2),
                 children: <TextSpan>[
                   TextSpan(
-                    text: '9 PLAY by Bang & Olufsen Beoplay H4 \n',
+                    text: 'Search For ',
                     style: GoogleFonts.inter(
-                        fontSize: 18.0,
-                        fontWeight: FontWeight.bold,
-                        color: Color(0xFF000000)),
+                      fontSize: 18.0,
+                      fontWeight: FontWeight.bold,
+                      color: Color(0xFF000000),
+                    ),
                   ),
                   TextSpan(
-                    text: '\$99.99',
+                    text: 'Products \n',
                     style: GoogleFonts.inter(
                       fontSize: 14.0,
                       fontWeight: FontWeight.w500,
                       color: Color(0xFF696969),
+                    ),
+                  ),
+                  TextSpan(
+                    text: 'Efficiently At No Cost',
+                    style: GoogleFonts.inter(
+                      fontSize: 18.0,
+                      fontWeight: FontWeight.bold,
+                      color: Color(0xFF000000),
                     ),
                   ),
                 ],
