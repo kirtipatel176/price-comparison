@@ -99,10 +99,11 @@ class _HomeScreenState extends State<HomeScreen> {
         List<dynamic> data = jsonDecode(response.body);
         setState(() {
           _searchResults = data;
+          _isLoading = false;
         });
       } else {
         setState(() {
-          _isLoading = true;
+          _isLoading = false;
         });
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
@@ -120,6 +121,9 @@ class _HomeScreenState extends State<HomeScreen> {
         print('Request failed with status: ${response.statusCode}.');
       }
     } catch (e) {
+      setState(() {
+        _isLoading = false;
+      });
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
           content: Center(
@@ -223,16 +227,14 @@ class _HomeScreenState extends State<HomeScreen> {
                   ? LoadingScreen()
                   : _searchResults.isEmpty
                       ? NodataScreen()
-                      : Column(
-                          children: [
-                            // Third Positioned widget for card (displaying details of single item)
-                            Positioned(
-                              left: 0.0,
-                              right: 0.0,
-                              top: 260.0,
-
-                              // Padding around container for displaying single item details
-                              child: Padding(
+                      : Positioned(
+                          left: 0.0,
+                          right: 0.0,
+                          top: 260.0,
+                          child: Column(
+                            children: [
+                              // Third Positioned widget for card (displaying details of single item)
+                              Padding(
                                 padding: const EdgeInsets.symmetric(
                                     horizontal: 20.0),
 
@@ -350,14 +352,15 @@ class _HomeScreenState extends State<HomeScreen> {
                                             children: <TextSpan>[
                                               TextSpan(
                                                 text:
-                                                    '9 PLAY by Bang & Olufsen Beoplay H4 \n',
+                                                    '${_searchResults[0]['title'] ?? 'No Title'} \n',
                                                 style: GoogleFonts.inter(
                                                     fontSize: 18.0,
                                                     fontWeight: FontWeight.bold,
                                                     color: Color(0xFF000000)),
                                               ),
                                               TextSpan(
-                                                text: '\$99.99',
+                                                text:
+                                                    '${_searchResults[0]['price'] ?? 'N/A'}',
                                                 style: GoogleFonts.inter(
                                                   fontSize: 14.0,
                                                   fontWeight: FontWeight.w500,
@@ -375,26 +378,26 @@ class _HomeScreenState extends State<HomeScreen> {
                                             const EdgeInsets.only(top: 10.0),
 
                                         // Image of item here
-                                        child: Image.asset(
-                                          "assets/images/headset.png",
+                                        child: Image.network(
+                                          _searchResults[0]['img'] ?? '',
+                                          height: 200.0,
                                           width:
                                               MediaQuery.of(context).size.width,
-                                          height: 200.0,
                                           fit: BoxFit.contain,
+                                          errorBuilder:
+                                              (context, error, stackTrace) {
+                                            return const Icon(Icons.image,
+                                                size: 100);
+                                          },
                                         ),
                                       ),
                                     ],
                                   ),
                                 ),
                               ),
-                            ),
 
-                            // Fourth Positioned for other items that match from other retailers
-                            Positioned(
-                              left: 0.0,
-                              right: 0.0,
-                              bottom: 20.0,
-                              child: SizedBox(
+                              // Fourth Positioned for other items that match from other retailers
+                              SizedBox(
                                 height: 200.0,
                                 child: ListView.builder(
                                   scrollDirection: Axis.horizontal,
@@ -563,8 +566,8 @@ class _HomeScreenState extends State<HomeScreen> {
                                   },
                                 ),
                               ),
-                            ),
-                          ],
+                            ],
+                          ),
                         ),
             ],
           ),
