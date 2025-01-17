@@ -48,7 +48,14 @@ class NodataScreen extends StatelessWidget {
                     style: GoogleFonts.inter(
                       fontSize: 14.0,
                       fontWeight: FontWeight.w500,
-                      color: Color(0xFF696969),
+                      foreground: Paint()
+                        ..shader = LinearGradient(
+                          colors: [Color(0xFF0000FF), Color(0xFFFF6F61)],
+                          begin: Alignment.topLeft,
+                          end: Alignment.topRight,
+                        ).createShader(
+                          Rect.fromLTWH(0.0, 0.0, 1000.0, 14.0),
+                        ),
                     ),
                   ),
                   TextSpan(
