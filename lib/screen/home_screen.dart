@@ -418,8 +418,13 @@ class _HomeScreenState extends State<HomeScreen> {
                                 height: 200.0,
                                 child: ListView.builder(
                                   scrollDirection: Axis.horizontal,
-                                  itemCount: itemList.length,
+                                  itemCount: _searchResults.length > 4
+                                      ? 4
+                                      : _searchResults.length,
                                   itemBuilder: (context, index) {
+                                    final item = _searchResults[
+                                        _searchResults.length - 1 - index];
+
                                     return Padding(
                                       padding: const EdgeInsets.only(
                                         top: 20.0,
