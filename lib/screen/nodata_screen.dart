@@ -38,7 +38,7 @@ class NodataScreen extends StatelessWidget {
                   TextSpan(
                     text: 'Search For ',
                     style: GoogleFonts.inter(
-                      fontSize: 18.0,
+                      fontSize: 20.0,
                       fontWeight: FontWeight.bold,
                       color: Color(0xFF000000),
                     ),
@@ -46,11 +46,11 @@ class NodataScreen extends StatelessWidget {
                   TextSpan(
                     text: 'Products \n',
                     style: GoogleFonts.inter(
-                      fontSize: 14.0,
+                      fontSize: 20.0,
                       fontWeight: FontWeight.w500,
                       foreground: Paint()
                         ..shader = LinearGradient(
-                          colors: [Color(0xFF0000FF), Color(0xFFFF6F61)],
+                          colors: [Color(0xFF00FF00), Color(0xFF0000FF)],
                           begin: Alignment.topLeft,
                           end: Alignment.topRight,
                         ).createShader(
@@ -61,7 +61,7 @@ class NodataScreen extends StatelessWidget {
                   TextSpan(
                     text: 'Efficiently At No Cost',
                     style: GoogleFonts.inter(
-                      fontSize: 18.0,
+                      fontSize: 20.0,
                       fontWeight: FontWeight.bold,
                       color: Color(0xFF000000),
                     ),
