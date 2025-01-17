@@ -275,45 +275,53 @@ class _HomeScreenState extends State<HomeScreen> {
                                           mainAxisAlignment:
                                               MainAxisAlignment.spaceBetween,
                                           children: [
-                                            Container(
-                                              padding:
-                                                  const EdgeInsets.symmetric(
-                                                      vertical: 10.0),
-                                              width: 156.0,
-                                              decoration: BoxDecoration(
-                                                border: Border(
-                                                  right: BorderSide(
-                                                    color:
-                                                        const Color(0xFFD3D3D3),
-                                                    width: 0.4,
-                                                  ),
-                                                  bottom: BorderSide(
-                                                    color:
-                                                        const Color(0xFFFF6F61),
-                                                    width: 2,
-                                                  ),
-                                                ),
-                                              ),
-                                              child: Row(
-                                                mainAxisAlignment:
-                                                    MainAxisAlignment.center,
-                                                children: [
-                                                  Text(
-                                                    'Visit Website',
-                                                    style: GoogleFonts.inter(
-                                                      color: Color(0xFFFF6F61),
+                                            GestureDetector(
+                                              onTap: () {
+                                                final link =
+                                                    _searchResults[0]['link'];
+                                                if (link != null) {}
+                                              },
+                                              child: Container(
+                                                padding:
+                                                    const EdgeInsets.symmetric(
+                                                        vertical: 10.0),
+                                                width: 156.0,
+                                                decoration: BoxDecoration(
+                                                  border: Border(
+                                                    right: BorderSide(
+                                                      color: const Color(
+                                                          0xFFD3D3D3),
+                                                      width: 0.4,
+                                                    ),
+                                                    bottom: BorderSide(
+                                                      color: const Color(
+                                                          0xFFFF6F61),
+                                                      width: 2,
                                                     ),
                                                   ),
-                                                  const SizedBox(
-                                                    width: 3.0,
-                                                  ),
-                                                  Icon(
-                                                    Icons
-                                                        .open_in_browser_rounded,
-                                                    size: 20.0,
-                                                    color: Color(0xFFFF6F61),
-                                                  ),
-                                                ],
+                                                ),
+                                                child: Row(
+                                                  mainAxisAlignment:
+                                                      MainAxisAlignment.center,
+                                                  children: [
+                                                    Text(
+                                                      'Visit Website',
+                                                      style: GoogleFonts.inter(
+                                                        color:
+                                                            Color(0xFFFF6F61),
+                                                      ),
+                                                    ),
+                                                    const SizedBox(
+                                                      width: 3.0,
+                                                    ),
+                                                    Icon(
+                                                      Icons
+                                                          .open_in_browser_rounded,
+                                                      size: 20.0,
+                                                      color: Color(0xFFFF6F61),
+                                                    ),
+                                                  ],
+                                                ),
                                               ),
                                             ),
                                             Container(
