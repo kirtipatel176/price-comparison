@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class NodataScreen extends StatelessWidget {
   const NodataScreen({super.key});
@@ -29,7 +30,29 @@ class NodataScreen extends StatelessWidget {
             ),
           ),
           child: Center(
-            child: Text('data'),
+            child: RichText(
+              textAlign: TextAlign.center,
+              text: TextSpan(
+                style: GoogleFonts.inter(height: 1.2),
+                children: <TextSpan>[
+                  TextSpan(
+                    text: '9 PLAY by Bang & Olufsen Beoplay H4 \n',
+                    style: GoogleFonts.inter(
+                        fontSize: 18.0,
+                        fontWeight: FontWeight.bold,
+                        color: Color(0xFF000000)),
+                  ),
+                  TextSpan(
+                    text: '\$99.99',
+                    style: GoogleFonts.inter(
+                      fontSize: 14.0,
+                      fontWeight: FontWeight.w500,
+                      color: Color(0xFF696969),
+                    ),
+                  ),
+                ],
+              ),
+            ),
           ),
         ),
       ),
