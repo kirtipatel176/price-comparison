@@ -286,7 +286,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                                   await launchUrl(
                                                     Uri.parse(link),
                                                     mode: LaunchMode
-                                                        .externalApplication, // Opens the link in the default browser
+                                                        .externalApplication,
                                                   );
                                                 }
                                               },
@@ -449,6 +449,21 @@ class _HomeScreenState extends State<HomeScreen> {
                                               padding:
                                                   const EdgeInsets.symmetric(
                                                       horizontal: 20.0),
+                                              child: Text(
+                                                item['title'],
+                                                overflow: TextOverflow.ellipsis,
+                                                style: GoogleFonts.inter(
+                                                  fontSize: 16.0,
+                                                  fontWeight: FontWeight.bold,
+                                                  color: Color(0xFF000000),
+                                                ),
+                                              ),
+                                            ),
+                                            Padding(
+                                              padding: const EdgeInsets.only(
+                                                  top: 20.0,
+                                                  left: 20.0,
+                                                  right: 20.0),
                                               child: Row(
                                                 mainAxisAlignment:
                                                     MainAxisAlignment
@@ -463,8 +478,10 @@ class _HomeScreenState extends State<HomeScreen> {
                                                         item['shop']
                                                             .replaceFirst(
                                                                 'from ', ''),
+                                                        overflow: TextOverflow
+                                                            .ellipsis,
                                                         style: GoogleFonts.inter(
-                                                            fontSize: 16.0,
+                                                            fontSize: 14.0,
                                                             fontWeight:
                                                                 FontWeight.w500,
                                                             color: Color(
@@ -524,6 +541,28 @@ class _HomeScreenState extends State<HomeScreen> {
                                                   ),
                                                 ],
                                               ),
+                                            ),
+
+                                            // Spacer to push the button to the bottom
+                                            Spacer(),
+
+                                            // Small Button here
+                                            SmallButton(
+                                              icon:
+                                                  Icons.open_in_browser_rounded,
+                                              text: 'Visit Site',
+                                              function: () async {
+                                                final link = item['link'];
+                                                if (link != null &&
+                                                    await canLaunchUrl(
+                                                        Uri.parse(link))) {
+                                                  await launchUrl(
+                                                    Uri.parse(link),
+                                                    mode: LaunchMode
+                                                        .externalApplication,
+                                                  );
+                                                }
+                                              },
                                             ),
                                           ],
                                         ),
