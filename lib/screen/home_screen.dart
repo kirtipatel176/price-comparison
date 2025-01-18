@@ -94,7 +94,7 @@ class _HomeScreenState extends State<HomeScreen> {
       );
 
       // Print
-      print(response.body);
+      // print(response.body);
 
       if (response.statusCode == 200) {
         List<dynamic> data = jsonDecode(response.body);
@@ -410,6 +410,43 @@ class _HomeScreenState extends State<HomeScreen> {
                                       ),
                                     ],
                                   ),
+                                ),
+                              ),
+
+                              SizedBox(
+                                height: 200.0,
+                                child: ListView.builder(
+                                  scrollDirection: Axis.horizontal,
+                                  itemCount: _searchResults.length > 4
+                                      ? 4
+                                      : _searchResults.length,
+                                  itemBuilder: (context, index) {
+                                    final item = _searchResults[
+                                        _searchResults.length - 1 - index];
+                                    return Card(
+                                      margin: const EdgeInsets.only(right: 8.0),
+                                      child: Column(
+                                        children: [
+                                          Image.network(
+                                            item['img'],
+                                            height: 80,
+                                            width: 80,
+                                            fit: BoxFit.cover,
+                                          ),
+                                          Text(
+                                            item['title'],
+                                            style: GoogleFonts.inter(
+                                                fontSize: 12.0),
+                                          ),
+                                          Text(
+                                            item['price'],
+                                            style: GoogleFonts.inter(
+                                                fontSize: 14.0),
+                                          ),
+                                        ],
+                                      ),
+                                    );
+                                  },
                                 ),
                               ),
 
