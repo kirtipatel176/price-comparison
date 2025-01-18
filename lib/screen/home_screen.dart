@@ -423,27 +423,134 @@ class _HomeScreenState extends State<HomeScreen> {
                                   itemBuilder: (context, index) {
                                     final item = _searchResults[
                                         _searchResults.length - 1 - index];
-                                    return Card(
-                                      margin: const EdgeInsets.only(right: 8.0),
-                                      child: Column(
-                                        children: [
-                                          Image.network(
-                                            item['img'],
-                                            height: 80,
-                                            width: 80,
-                                            fit: BoxFit.cover,
+                                    return Padding(
+                                      padding: const EdgeInsets.only(
+                                        top: 20.0,
+                                        left: 20.0,
+                                      ),
+                                      child: Container(
+                                        padding:
+                                            const EdgeInsets.only(top: 20.0),
+                                        width: 250.0,
+                                        decoration: BoxDecoration(
+                                          color: const Color(0xFFFFFFFF),
+                                          borderRadius:
+                                              BorderRadius.circular(5.0),
+                                          border: Border.all(
+                                            color: const Color(0xFFD3D3D3),
+                                            width: 0.4,
                                           ),
-                                          Text(
-                                            item['title'],
-                                            style: GoogleFonts.inter(
-                                                fontSize: 12.0),
-                                          ),
-                                          Text(
-                                            item['price'],
-                                            style: GoogleFonts.inter(
-                                                fontSize: 14.0),
-                                          ),
-                                        ],
+                                        ),
+                                        child: Column(
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.start,
+                                          children: [
+                                            Padding(
+                                              padding:
+                                                  const EdgeInsets.symmetric(
+                                                      horizontal: 20.0),
+                                              child: Row(
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment
+                                                        .spaceBetween,
+                                                children: [
+                                                  Column(
+                                                    crossAxisAlignment:
+                                                        CrossAxisAlignment
+                                                            .start,
+                                                    children: [
+                                                      Text(
+                                                        item['shop']
+                                                            .replaceFirst(
+                                                                'from ', ''),
+                                                        style: GoogleFonts.inter(
+                                                            fontSize: 16.0,
+                                                            fontWeight:
+                                                                FontWeight.w500,
+                                                            color: Color(
+                                                                0xFF696969)),
+                                                      ),
+                                                      Text(
+                                                        item['price'],
+                                                        style: GoogleFonts.inter(
+                                                            fontSize: 14.0,
+                                                            fontWeight:
+                                                                FontWeight.w500,
+                                                            color: Color(
+                                                                0xFF696969)),
+                                                      ),
+                                                    ],
+                                                  ),
+                                                  Column(
+                                                    crossAxisAlignment:
+                                                        CrossAxisAlignment
+                                                            .start,
+                                                    children: [
+                                                      // Item rating
+                                                      Row(
+                                                        children: List.generate(
+                                                          int.parse(
+                                                              item['rating']
+                                                                  .split(' ')[0]
+                                                                  .split(
+                                                                      '.')[0]),
+                                                          (starIndex) =>
+                                                              const Icon(
+                                                            Icons.star,
+                                                            color: Colors.amber,
+                                                            size: 16.3,
+                                                          ),
+                                                        ),
+                                                      ),
+
+                                                      // Item reviews
+                                                      Text(
+                                                        '${item['reviews']} REVIEWS',
+                                                        style:
+                                                            GoogleFonts.inter(
+                                                          fontSize: 12.0,
+                                                          fontWeight:
+                                                              FontWeight.w500,
+                                                          color:
+                                                              Color(0xFFFF6F61),
+                                                          decoration:
+                                                              TextDecoration
+                                                                  .underline,
+                                                          decorationColor:
+                                                              Color(0xFFFF6F61),
+                                                        ),
+                                                      ),
+                                                    ],
+                                                  ),
+                                                ],
+                                              ),
+                                            ),
+                                            // Card(
+                                            //   margin: const EdgeInsets.only(
+                                            //       right: 8.0),
+                                            //   child: Column(
+                                            //     children: [
+                                            //       Image.network(
+                                            //         item['img'],
+                                            //         height: 80,
+                                            //         width: 80,
+                                            //         fit: BoxFit.cover,
+                                            //       ),
+                                            //       Text(
+                                            //         item['title'],
+                                            //         style: GoogleFonts.inter(
+                                            //             fontSize: 12.0),
+                                            //       ),
+                                            //       Text(
+                                            //         item['price'],
+                                            //         style: GoogleFonts.inter(
+                                            //             fontSize: 14.0),
+                                            //       ),
+                                            //     ],
+                                            //   ),
+                                            // ),
+                                          ],
+                                        ),
                                       ),
                                     );
                                   },
