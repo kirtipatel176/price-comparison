@@ -8,11 +8,11 @@ class NodataScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     // action list
     final List<Map<String, dynamic>> actionsList = [
-      {'name': 'Think'},
-      {'name': 'Search'},
-      {'name': 'Compare'},
-      {'name': 'Shop'},
-      {'name': 'AI Suggestions'},
+      {'name': 'Think', 'icon': Icons.lightbulb},
+      {'name': 'Search', 'icon': Icons.search},
+      {'name': 'Compare', 'icon': Icons.compare},
+      {'name': 'Shop', 'icon': Icons.shopping_cart},
+      {'name': 'AI Suggestions', 'icon': Icons.psychology},
     ];
 
     // Third Positioned widget for no data if user have not made a search yet
