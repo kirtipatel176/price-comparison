@@ -471,7 +471,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                                                 0xFF696969)),
                                                       ),
                                                       Text(
-                                                        item['price'],
+                                                        ' ${item['price']}',
                                                         style: GoogleFonts.inter(
                                                             fontSize: 14.0,
                                                             fontWeight:
@@ -525,30 +525,6 @@ class _HomeScreenState extends State<HomeScreen> {
                                                 ],
                                               ),
                                             ),
-                                            // Card(
-                                            //   margin: const EdgeInsets.only(
-                                            //       right: 8.0),
-                                            //   child: Column(
-                                            //     children: [
-                                            //       Image.network(
-                                            //         item['img'],
-                                            //         height: 80,
-                                            //         width: 80,
-                                            //         fit: BoxFit.cover,
-                                            //       ),
-                                            //       Text(
-                                            //         item['title'],
-                                            //         style: GoogleFonts.inter(
-                                            //             fontSize: 12.0),
-                                            //       ),
-                                            //       Text(
-                                            //         item['price'],
-                                            //         style: GoogleFonts.inter(
-                                            //             fontSize: 14.0),
-                                            //       ),
-                                            //     ],
-                                            //   ),
-                                            // ),
                                           ],
                                         ),
                                       ),
