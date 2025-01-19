@@ -124,13 +124,13 @@ class NodataScreen extends StatelessWidget {
                               children: [
                                 Icon(
                                   action['icon'],
-                                  size: 18.0,
+                                  size: 12.0,
                                   color: action['color'],
                                 ),
                                 Text(
                                   action['name'],
                                   style: GoogleFonts.inter(
-                                    fontSize: 14.0,
+                                    fontSize: 12.0,
                                     fontWeight: FontWeight.w600,
                                     color: const Color(0xFF000000),
                                   ),
