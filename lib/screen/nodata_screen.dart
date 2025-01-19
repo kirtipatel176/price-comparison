@@ -8,11 +8,15 @@ class NodataScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     // action list
     final List<Map<String, dynamic>> actionsList = [
-      {'name': 'Think', 'icon': Icons.lightbulb},
-      {'name': 'Search', 'icon': Icons.search},
-      {'name': 'Compare', 'icon': Icons.compare},
-      {'name': 'Shop', 'icon': Icons.shopping_cart},
-      {'name': 'AI Suggestions', 'icon': Icons.psychology},
+      {'name': 'Think', 'icon': Icons.lightbulb, 'color': Colors.amber},
+      {'name': 'Search', 'icon': Icons.search, 'color': Colors.red},
+      {'name': 'Compare', 'icon': Icons.compare, 'color': Colors.blue},
+      {'name': 'Shop', 'icon': Icons.shopping_cart, 'color': Colors.green},
+      {
+        'name': 'AI Suggestions',
+        'icon': Icons.psychology,
+        'color': Colors.orange
+      },
     ];
 
     // Third Positioned widget for no data if user have not made a search yet
@@ -115,13 +119,23 @@ class NodataScreen extends StatelessWidget {
                             ),
 
                             // Text for each action
-                            child: Text(
-                              action['name'],
-                              style: GoogleFonts.inter(
-                                fontSize: 14.0,
-                                fontWeight: FontWeight.w600,
-                                color: const Color(0xFF000000),
-                              ),
+                            child: Row(
+                              mainAxisSize: MainAxisSize.min,
+                              children: [
+                                Icon(
+                                  action['icon'],
+                                  size: 18.0,
+                                  color: action['color'],
+                                ),
+                                Text(
+                                  action['name'],
+                                  style: GoogleFonts.inter(
+                                    fontSize: 14.0,
+                                    fontWeight: FontWeight.w600,
+                                    color: const Color(0xFF000000),
+                                  ),
+                                ),
+                              ],
                             ),
                           ),
                         );
