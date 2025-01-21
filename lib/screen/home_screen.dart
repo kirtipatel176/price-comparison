@@ -357,37 +357,66 @@ class _HomeScreenState extends State<HomeScreen> {
                                           ],
                                         ),
                                       ),
-                                      // RichText for displaying the item name and price
                                       Padding(
                                         padding:
-                                            const EdgeInsets.only(top: 20.0),
-                                        child: RichText(
-                                          textAlign: TextAlign.center,
-                                          text: TextSpan(
-                                            style:
-                                                GoogleFonts.inter(height: 1.2),
-                                            children: <TextSpan>[
-                                              TextSpan(
-                                                text:
-                                                    '${_searchResults[0]['title'] ?? 'No Title'} \n',
-                                                style: GoogleFonts.inter(
-                                                    fontSize: 18.0,
-                                                    fontWeight: FontWeight.bold,
-                                                    color: Color(0xFF000000)),
+                                            const EdgeInsets.only(top: 15.0),
+                                        child: Column(
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.center,
+                                          children: [
+                                            Text(
+                                              maxLines: 2,
+                                              overflow: TextOverflow.ellipsis,
+                                              textAlign: TextAlign.center,
+                                              '${_searchResults[0]['title'] ?? 'No Title'} \n',
+                                              style: GoogleFonts.inter(
+                                                  fontSize: 18.0,
+                                                  fontWeight: FontWeight.bold,
+                                                  color: Color(0xFF000000)),
+                                            ),
+                                            Text(
+                                              textAlign: TextAlign.center,
+                                              '${_searchResults[0]['price'] ?? 'N/A'}',
+                                              style: GoogleFonts.inter(
+                                                fontSize: 14.0,
+                                                fontWeight: FontWeight.w500,
+                                                color: Color(0xFF696969),
                                               ),
-                                              TextSpan(
-                                                text:
-                                                    '${_searchResults[0]['price'] ?? 'N/A'}',
-                                                style: GoogleFonts.inter(
-                                                  fontSize: 14.0,
-                                                  fontWeight: FontWeight.w500,
-                                                  color: Color(0xFF696969),
-                                                ),
-                                              ),
-                                            ],
-                                          ),
+                                            ),
+                                          ],
                                         ),
                                       ),
+                                      // RichText for displaying the item name and price
+                                      // Padding(
+                                      //   padding:
+                                      //       const EdgeInsets.only(top: 20.0),
+                                      //   child: RichText(
+                                      //     textAlign: TextAlign.center,
+                                      //     text: TextSpan(
+                                      //       style:
+                                      //           GoogleFonts.inter(height: 1.2),
+                                      //       children: <TextSpan>[
+                                      //         TextSpan(
+                                      //           text:
+                                      //               '${_searchResults[0]['title'] ?? 'No Title'} \n',
+                                      //           style: GoogleFonts.inter(
+                                      //               fontSize: 18.0,
+                                      //               fontWeight: FontWeight.bold,
+                                      //               color: Color(0xFF000000)),
+                                      //         ),
+                                      //         TextSpan(
+                                      //           text:
+                                      //               '${_searchResults[0]['price'] ?? 'N/A'}',
+                                      //           style: GoogleFonts.inter(
+                                      //             fontSize: 14.0,
+                                      //             fontWeight: FontWeight.w500,
+                                      //             color: Color(0xFF696969),
+                                      //           ),
+                                      //         ),
+                                      //       ],
+                                      //     ),
+                                      //   ),
+                                      // ),
 
                                       // Image of item in a padding
                                       Padding(
