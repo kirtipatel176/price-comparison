@@ -476,19 +476,30 @@ class _HomeScreenState extends State<HomeScreen> {
                                                         item['shop']
                                                             .replaceFirst(
                                                                 'from ', ''),
+                                                        maxLines: 1,
                                                         overflow: TextOverflow
                                                             .ellipsis,
                                                         style: GoogleFonts.inter(
-                                                            fontSize: 14.0,
+                                                            fontSize: 12.0,
                                                             fontWeight:
                                                                 FontWeight.w500,
                                                             color: Color(
                                                                 0xFF696969)),
                                                       ),
                                                       Text(
-                                                        ' ${item['price']}',
+                                                        item['price']
+                                                            .toString()
+                                                            .replaceAll(
+                                                                RegExp(
+                                                                    'used|refurbished',
+                                                                    caseSensitive:
+                                                                        false),
+                                                                ''),
+                                                        maxLines: 1,
+                                                        overflow: TextOverflow
+                                                            .ellipsis,
                                                         style: GoogleFonts.inter(
-                                                            fontSize: 14.0,
+                                                            fontSize: 12.0,
                                                             fontWeight:
                                                                 FontWeight.w500,
                                                             color: Color(
@@ -521,6 +532,9 @@ class _HomeScreenState extends State<HomeScreen> {
                                                       // Item reviews
                                                       Text(
                                                         '${item['reviews']} REVIEWS',
+                                                        maxLines: 1,
+                                                        overflow: TextOverflow
+                                                            .ellipsis,
                                                         style:
                                                             GoogleFonts.inter(
                                                           fontSize: 12.0,
