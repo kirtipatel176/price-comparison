@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -393,17 +394,17 @@ class _HomeScreenState extends State<HomeScreen> {
                                             const EdgeInsets.only(top: 10.0),
 
                                         // Image of item here
-                                        child: Image.network(
-                                          _searchResults[0]['img'] ?? '',
+                                        child: CachedNetworkImage(
+                                          imageUrl:
+                                              _searchResults[0]['img'] ?? '',
                                           height: 200.0,
                                           width:
                                               MediaQuery.of(context).size.width,
-                                          fit: BoxFit.contain,
-                                          errorBuilder:
-                                              (context, error, stackTrace) {
-                                            return const Icon(Icons.image,
-                                                size: 100);
-                                          },
+                                          fit: BoxFit.cover,
+                                          filterQuality: FilterQuality.high,
+                                          errorWidget: (context, url, error) =>
+                                              const Icon(Icons.image,
+                                                  size: 100),
                                         ),
                                       ),
                                     ],
