@@ -394,17 +394,18 @@ class _HomeScreenState extends State<HomeScreen> {
                                             const EdgeInsets.only(top: 10.0),
 
                                         // Image of item here
-                                        child: CachedNetworkImage(
-                                          imageUrl:
-                                              _searchResults[0]['img'] ?? '',
+                                        child: Image.network(
+                                          _searchResults[0]['img'] ?? '',
                                           height: 200.0,
                                           width:
                                               MediaQuery.of(context).size.width,
                                           fit: BoxFit.cover,
                                           filterQuality: FilterQuality.high,
-                                          errorWidget: (context, url, error) =>
-                                              const Icon(Icons.image,
-                                                  size: 100),
+                                          errorBuilder:
+                                              (context, error, stackTrace) {
+                                            return const Icon(Icons.image,
+                                                size: 100);
+                                          },
                                         ),
                                       ),
                                     ],
