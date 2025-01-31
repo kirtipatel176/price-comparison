@@ -47,6 +47,15 @@ class _HomeScreenState extends State<HomeScreen> {
       'numberOfDays': 4,
       'shipping': 'Free Shipping',
     },
+    {
+      'price': 199.99,
+      'star': 4,
+      'reviews': 126,
+      'shop': 'assets/images/ebay.png',
+      'stockType': 'In Stock',
+      'numberOfDays': 2,
+      'shipping': 'Shipping At Fee',
+    },
   ];
 
   //  searchProduct function
