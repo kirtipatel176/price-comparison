@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:tsena/screen/loading_screen.dart';
 import 'package:tsena/screen/nodata_screen.dart';
 import 'package:tsena/utility/large_button.dart';
@@ -133,6 +134,14 @@ class _HomeScreenState extends State<HomeScreen> {
       );
       print('Error occurred: $e');
     }
+  }
+
+  // Function to save search results to SharedPreferences
+  Future<void> _saveSearchResultsToSharedPreferences(
+      List<dynamic> results) async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    String resultsString = jsonEncode(results);
+    await prefs.setString('search_results', resultsString);
   }
 
   @override
