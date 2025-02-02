@@ -415,9 +415,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                         _searchResults.length - 1 - index];
                                     return Padding(
                                       padding: const EdgeInsets.only(
-                                        top: 20.0,
-                                        left: 20.0,
-                                      ),
+                                          top: 20.0, left: 20.0),
                                       child: Container(
                                         padding:
                                             const EdgeInsets.only(top: 20.0),
@@ -435,6 +433,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                           crossAxisAlignment:
                                               CrossAxisAlignment.start,
                                           children: [
+                                            // Title
                                             Padding(
                                               padding:
                                                   const EdgeInsets.symmetric(
@@ -449,6 +448,8 @@ class _HomeScreenState extends State<HomeScreen> {
                                                 ),
                                               ),
                                             ),
+
+                                            // Shop and Price
                                             Padding(
                                               padding: const EdgeInsets.only(
                                                   top: 20.0,
@@ -459,89 +460,109 @@ class _HomeScreenState extends State<HomeScreen> {
                                                     MainAxisAlignment
                                                         .spaceBetween,
                                                 children: [
-                                                  Column(
-                                                    crossAxisAlignment:
-                                                        CrossAxisAlignment
-                                                            .start,
-                                                    children: [
-                                                      Text(
-                                                        item['shop']
-                                                            .replaceFirst(
-                                                                'from ', ''),
-                                                        maxLines: 1,
-                                                        overflow: TextOverflow
-                                                            .ellipsis,
-                                                        style: GoogleFonts.inter(
+                                                  Flexible(
+                                                    child: Column(
+                                                      crossAxisAlignment:
+                                                          CrossAxisAlignment
+                                                              .start,
+                                                      children: [
+                                                        Text(
+                                                          item['shop']
+                                                              .replaceFirst(
+                                                                  'from ', ''),
+                                                          maxLines: 1,
+                                                          overflow: TextOverflow
+                                                              .ellipsis,
+                                                          style:
+                                                              GoogleFonts.inter(
                                                             fontSize: 12.0,
                                                             fontWeight:
                                                                 FontWeight.w500,
                                                             color: Color(
-                                                                0xFF696969)),
-                                                      ),
-                                                      Text(
-                                                        item['price']
-                                                            .toString()
-                                                            .replaceAll(
-                                                                RegExp(
-                                                                    'used|refurbished',
-                                                                    caseSensitive:
-                                                                        false),
-                                                                ''),
-                                                        maxLines: 1,
-                                                        overflow: TextOverflow
-                                                            .ellipsis,
-                                                        style: GoogleFonts.inter(
+                                                                0xFF696969),
+                                                          ),
+                                                        ),
+                                                        Text(
+                                                          item['price']
+                                                              .toString()
+                                                              .replaceAll(
+                                                                  RegExp(
+                                                                      'used|refurbished',
+                                                                      caseSensitive:
+                                                                          false),
+                                                                  ''),
+                                                          maxLines: 1,
+                                                          overflow: TextOverflow
+                                                              .ellipsis,
+                                                          style:
+                                                              GoogleFonts.inter(
                                                             fontSize: 12.0,
                                                             fontWeight:
                                                                 FontWeight.w500,
                                                             color: Color(
-                                                                0xFF696969)),
-                                                      ),
-                                                    ],
+                                                                0xFF696969),
+                                                          ),
+                                                        ),
+                                                      ],
+                                                    ),
                                                   ),
-                                                  Column(
-                                                    crossAxisAlignment:
-                                                        CrossAxisAlignment
-                                                            .start,
-                                                    children: [
-                                                      // Item rating
-                                                      Row(
-                                                        children: List.generate(
-                                                          int.parse(
-                                                              item['rating']
+
+                                                  // Rating and Reviews
+                                                  Flexible(
+                                                    child: Padding(
+                                                      padding:
+                                                          const EdgeInsets.only(
+                                                              left: 10.0),
+                                                      child: Column(
+                                                        crossAxisAlignment:
+                                                            CrossAxisAlignment
+                                                                .start,
+                                                        children: [
+                                                          // Item rating
+                                                          Row(
+                                                            children:
+                                                                List.generate(
+                                                              int.parse(item[
+                                                                      'rating']
                                                                   .split(' ')[0]
                                                                   .split(
                                                                       '.')[0]),
-                                                          (starIndex) =>
-                                                              const Icon(
-                                                            Icons.star,
-                                                            color: Colors.amber,
-                                                            size: 16.3,
+                                                              (starIndex) =>
+                                                                  const Icon(
+                                                                Icons.star,
+                                                                color: Colors
+                                                                    .amber,
+                                                                size: 16.3,
+                                                              ),
+                                                            ),
                                                           ),
-                                                        ),
-                                                      ),
 
-                                                      // Item reviews
-                                                      Text(
-                                                        '${item['reviews']} REVIEWS',
-                                                        maxLines: 1,
-                                                        overflow: TextOverflow
-                                                            .ellipsis,
-                                                        style:
-                                                            GoogleFonts.inter(
-                                                          fontSize: 12.0,
-                                                          fontWeight:
-                                                              FontWeight.w500,
-                                                          color:
-                                                              Color(0xFFFF6F61),
-                                                          decoration:
-                                                              TextDecoration
-                                                                  .underline,
-                                                          decorationColor:
-                                                              Color(0xFFFF6F61),
-                                                        ),
+                                                          // Item reviews
+                                                          Text(
+                                                            '${item['reviews']} REVIEWS',
+                                                            maxLines: 1,
+                                                            overflow:
+                                                                TextOverflow
+                                                                    .ellipsis,
+                                                            style: GoogleFonts
+                                                                .inter(
+                                                              fontSize: 12.0,
+                                                              fontWeight:
+                                                                  FontWeight
+                                                                      .w500,
+                                                              color: Color(
+                                                                  0xFFFF6F61),
+                                                              decoration:
+                                                                  TextDecoration
+                                                                      .underline,
+                                                              decorationColor:
+                                                                  Color(
+                                                                      0xFFFF6F61),
+                                                            ),
+                                                          ),
+                                                        ],
                                                       ),
-                                                    ],
+                                                    ),
                                                   ),
                                                 ],
                                               ),
