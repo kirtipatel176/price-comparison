@@ -25,6 +25,8 @@ class _HomeScreenState extends State<HomeScreen> {
   // Search results List
   List<dynamic> _searchResults = [];
 
+  int _currentIndex = 0;
+
   // Loading state
   bool _isLoading = false;
 
@@ -225,12 +227,10 @@ class _HomeScreenState extends State<HomeScreen> {
                           top: 260.0,
                           child: Column(
                             children: [
-                              // Third Positioned widget for card (displaying details of single item)
+                              // In your widget's build method, wrap the stateful logic:
                               Padding(
                                 padding: const EdgeInsets.symmetric(
                                     horizontal: 20.0),
-
-                                // Container for displaying single item details
                                 child: Container(
                                   padding: const EdgeInsets.all(20.0),
                                   width: MediaQuery.of(context).size.width,
@@ -242,8 +242,6 @@ class _HomeScreenState extends State<HomeScreen> {
                                       width: 0.4,
                                     ),
                                   ),
-
-                                  // Column for displaying the item name, price and image
                                   child: Column(
                                     mainAxisAlignment: MainAxisAlignment.center,
                                     children: [
@@ -269,16 +267,15 @@ class _HomeScreenState extends State<HomeScreen> {
                                           children: [
                                             GestureDetector(
                                               onTap: () async {
-                                                final link =
-                                                    _searchResults[0]['link'];
+                                                final link = _searchResults[
+                                                    _currentIndex]['link'];
                                                 if (link != null &&
                                                     await canLaunchUrl(
                                                         Uri.parse(link))) {
                                                   await launchUrl(
-                                                    Uri.parse(link),
-                                                    mode: LaunchMode
-                                                        .externalApplication,
-                                                  );
+                                                      Uri.parse(link),
+                                                      mode: LaunchMode
+                                                          .externalApplication);
                                                 }
                                               },
                                               child: Container(
@@ -311,9 +308,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                                             Color(0xFFFF6F61),
                                                       ),
                                                     ),
-                                                    const SizedBox(
-                                                      width: 3.0,
-                                                    ),
+                                                    const SizedBox(width: 3.0),
                                                     Icon(
                                                       Icons
                                                           .open_in_browser_rounded,
@@ -324,25 +319,42 @@ class _HomeScreenState extends State<HomeScreen> {
                                                 ),
                                               ),
                                             ),
-                                            Container(
-                                              width: 156.0,
-                                              decoration: BoxDecoration(
-                                                  color: Color(0xFFFFFFFF)),
-                                              child: Row(
-                                                mainAxisAlignment:
-                                                    MainAxisAlignment.center,
-                                                children: [
-                                                  Text(
-                                                    'Next',
-                                                    style: GoogleFonts.inter(
+                                            GestureDetector(
+                                              onTap: () {
+                                                setState(() {
+                                                  // Update the index to show the next item
+                                                  if (_currentIndex <
+                                                      _searchResults.length -
+                                                          1) {
+                                                    _currentIndex++;
+                                                  } else {
+                                                    _currentIndex =
+                                                        0; // Loop back to the first item
+                                                  }
+                                                });
+                                              },
+                                              child: Container(
+                                                width: 156.0,
+                                                decoration: BoxDecoration(
+                                                    color: Color(0xFFFFFFFF)),
+                                                child: Row(
+                                                  mainAxisAlignment:
+                                                      MainAxisAlignment.center,
+                                                  children: [
+                                                    Text(
+                                                      'Next',
+                                                      style: GoogleFonts.inter(
+                                                        color:
+                                                            Color(0xFF696969),
+                                                      ),
+                                                    ),
+                                                    Icon(
+                                                      Icons
+                                                          .keyboard_arrow_right,
                                                       color: Color(0xFF696969),
                                                     ),
-                                                  ),
-                                                  Icon(
-                                                    Icons.keyboard_arrow_right,
-                                                    color: Color(0xFF696969),
-                                                  ),
-                                                ],
+                                                  ],
+                                                ),
                                               ),
                                             ),
                                           ],
@@ -359,7 +371,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                               maxLines: 2,
                                               overflow: TextOverflow.ellipsis,
                                               textAlign: TextAlign.center,
-                                              '${_searchResults[0]['title'] ?? 'No Title'} \n',
+                                              '${_searchResults[_currentIndex]['title'] ?? 'No Title'} \n',
                                               style: GoogleFonts.inter(
                                                   fontSize: 18.0,
                                                   fontWeight: FontWeight.bold,
@@ -367,7 +379,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                             ),
                                             Text(
                                               textAlign: TextAlign.center,
-                                              '${_searchResults[0]['price'] ?? 'N/A'}',
+                                              '${_searchResults[_currentIndex]['price'] ?? 'N/A'}',
                                               style: GoogleFonts.inter(
                                                 fontSize: 14.0,
                                                 fontWeight: FontWeight.w500,
@@ -377,15 +389,13 @@ class _HomeScreenState extends State<HomeScreen> {
                                           ],
                                         ),
                                       ),
-
-                                      // Image of item in a padding
                                       Padding(
                                         padding:
                                             const EdgeInsets.only(top: 10.0),
-
-                                        // Image of item here
                                         child: Image.network(
-                                          _searchResults[0]['img'] ?? '',
+                                          _searchResults[_currentIndex]
+                                                  ['img'] ??
+                                              '',
                                           height: 200.0,
                                           width:
                                               MediaQuery.of(context).size.width,
