@@ -319,42 +319,82 @@ class _HomeScreenState extends State<HomeScreen> {
                                                 ),
                                               ),
                                             ),
-                                            GestureDetector(
-                                              onTap: () {
-                                                setState(() {
-                                                  // Update the index to show the next item
-                                                  if (_currentIndex <
-                                                      _searchResults.length -
-                                                          1) {
-                                                    _currentIndex++;
-                                                  } else {
-                                                    _currentIndex =
-                                                        0; // Loop back to the first item
-                                                  }
-                                                });
-                                              },
-                                              child: Container(
-                                                width: 156.0,
-                                                decoration: BoxDecoration(
-                                                    color: Color(0xFFFFFFFF)),
-                                                child: Row(
-                                                  mainAxisAlignment:
-                                                      MainAxisAlignment.center,
-                                                  children: [
-                                                    Text(
-                                                      'Next',
-                                                      style: GoogleFonts.inter(
-                                                        color:
-                                                            Color(0xFF696969),
-                                                      ),
+                                            Container(
+                                              width: 156.0,
+                                              decoration: BoxDecoration(
+                                                  color: Color(0xFFFFFFFF)),
+                                              child: Row(
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment.center,
+                                                children: [
+                                                  // Back Button
+                                                  TextButton(
+                                                    onPressed: () {
+                                                      setState(() {
+                                                        // Update the index to show the previous item
+                                                        if (_currentIndex > 0) {
+                                                          _currentIndex--;
+                                                        } else {
+                                                          _currentIndex = 0;
+                                                        }
+                                                      });
+                                                    },
+                                                    child: Row(
+                                                      children: [
+                                                        Icon(
+                                                          Icons
+                                                              .keyboard_arrow_left,
+                                                          color:
+                                                              Color(0xFF696969),
+                                                        ),
+                                                        Text(
+                                                          'Back',
+                                                          style:
+                                                              GoogleFonts.inter(
+                                                            color: Color(
+                                                                0xFF696969),
+                                                          ),
+                                                        ),
+                                                      ],
                                                     ),
-                                                    Icon(
-                                                      Icons
-                                                          .keyboard_arrow_right,
-                                                      color: Color(0xFF696969),
+                                                  ),
+
+                                                  // Next Button
+                                                  TextButton(
+                                                    onPressed: () {
+                                                      setState(() {
+                                                        // Update the index to show the next item
+                                                        if (_currentIndex <
+                                                            _searchResults
+                                                                    .length -
+                                                                1) {
+                                                          _currentIndex++;
+                                                        } else {
+                                                          _currentIndex =
+                                                              0; // Go back to the first item
+                                                        }
+                                                      });
+                                                    },
+                                                    child: Row(
+                                                      children: [
+                                                        Text(
+                                                          'Next',
+                                                          style:
+                                                              GoogleFonts.inter(
+                                                            color: Color(
+                                                                0xFF696969),
+                                                          ),
+                                                        ),
+                                                        Icon(
+                                                          Icons
+                                                              .keyboard_arrow_right,
+                                                          color:
+                                                              Color(0xFF696969),
+                                                        ),
+                                                      ],
                                                     ),
-                                                  ],
-                                                ),
+                                                  ),
+                                                ],
                                               ),
                                             ),
                                           ],
