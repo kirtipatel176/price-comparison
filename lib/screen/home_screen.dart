@@ -389,7 +389,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                           height: 200.0,
                                           width:
                                               MediaQuery.of(context).size.width,
-                                          fit: BoxFit.cover,
+                                          fit: BoxFit.contain,
                                           filterQuality: FilterQuality.high,
                                           errorBuilder:
                                               (context, error, stackTrace) {
