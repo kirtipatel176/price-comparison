@@ -95,6 +95,9 @@ class _HomeScreenState extends State<HomeScreen> {
         setState(() {
           _searchResults = data;
           _isLoading = false;
+
+          // Save the search results to SharedPreferences
+          _saveSearchResultsToSharedPreferences(data);
         });
       } else {
         setState(() {
