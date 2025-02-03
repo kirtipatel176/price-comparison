@@ -3,7 +3,6 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 import 'package:tsena/screen/loading_screen.dart';
 import 'package:tsena/screen/nodata_screen.dart';
 import 'package:tsena/utility/large_button.dart';
@@ -30,18 +29,6 @@ class _HomeScreenState extends State<HomeScreen> {
 
   // Loading state
   bool _isLoading = false;
-
-  final List<Map<String, dynamic>> itemList = [
-    {
-      'price': 120.0,
-      'star': 5,
-      'reviews': 487,
-      'shop': 'assets/images/amazon.png',
-      'stockType': 'In Stock',
-      'numberOfDays': 1,
-      'shipping': 'Free Shipping',
-    },
-  ];
 
   //  searchProduct function
   Future<void> searchProduct(String query) async {
@@ -86,9 +73,6 @@ class _HomeScreenState extends State<HomeScreen> {
         setState(() {
           _searchResults = data;
           _isLoading = false;
-
-          // Save the search results to SharedPreferences
-          _saveSearchResultsToSharedPreferences(data);
         });
       } else {
         setState(() {
@@ -128,14 +112,6 @@ class _HomeScreenState extends State<HomeScreen> {
       );
       print('Error occurred: $e');
     }
-  }
-
-  // Function to save search results to SharedPreferences
-  Future<void> _saveSearchResultsToSharedPreferences(
-      List<dynamic> results) async {
-    SharedPreferences prefs = await SharedPreferences.getInstance();
-    String resultsString = jsonEncode(results);
-    await prefs.setString('search_results', resultsString);
   }
 
   @override
