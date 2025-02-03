@@ -41,15 +41,6 @@ class _HomeScreenState extends State<HomeScreen> {
       'numberOfDays': 1,
       'shipping': 'Free Shipping',
     },
-    {
-      'price': 199.99,
-      'star': 4,
-      'reviews': 928,
-      'shop': 'assets/images/walmart.png',
-      'stockType': 'Sold Out',
-      'numberOfDays': 4,
-      'shipping': 'Free Shipping',
-    },
   ];
 
   //  searchProduct function
