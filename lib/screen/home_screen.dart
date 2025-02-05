@@ -110,6 +110,7 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
         ),
       );
+      // Prints error message
       print('Error occurred: $e');
     }
   }
