@@ -25,6 +25,7 @@ class _HomeScreenState extends State<HomeScreen> {
   // Search results List
   List<dynamic> _searchResults = [];
 
+  // currentIndex of item results
   int _currentIndex = 0;
 
   // Loading state
