@@ -4,6 +4,7 @@ import 'package:google_fonts/google_fonts.dart';
 class LargeButton extends StatelessWidget {
   const LargeButton({super.key, this.text, this.function, this.icon});
 
+  // Variables
   final text;
   final function;
   final icon;
