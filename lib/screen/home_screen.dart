@@ -3,11 +3,11 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:tsena/screen/loading_screen.dart';
-import 'package:tsena/screen/nodata_screen.dart';
-import 'package:tsena/utility/large_button.dart';
-import 'package:tsena/utility/small_button.dart';
-import 'package:tsena/utility/textformfield.dart';
+import 'package:Pricecomparison/screen/loading_screen.dart';
+import 'package:Pricecomparison/screen/nodata_screen.dart';
+import 'package:Pricecomparison/utility/large_button.dart';
+import 'package:Pricecomparison/utility/small_button.dart';
+import 'package:Pricecomparison/utility/textformfield.dart';
 import 'package:http/http.dart' as http;
 import 'package:url_launcher/url_launcher.dart';
 
@@ -62,7 +62,8 @@ class _HomeScreenState extends State<HomeScreen> {
         url,
         headers: {
           'x-rapidapi-host': 'pricer.p.rapidapi.com',
-          'x-rapidapi-key': '${dotenv.env['token']}',
+          'x-rapidapi-key':
+              'f0b0073e54mshe856935fff20629p1315b7jsne8696db06057',
         },
       );
 
