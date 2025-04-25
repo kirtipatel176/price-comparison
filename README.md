@@ -26,7 +26,9 @@ It allows users to:
 
 ## 📂 Repository Structure
 
-
+<kbd>
+  <img src="./screenshort/1.png" width=30% height=30%/>
+</kbd>
 
 
 ---
@@ -65,9 +67,9 @@ This app uses RapidAPI to retrieve price and product data. To set it up:
 ## 📸 Screenshots
 
 <kbd>
-  <img src="./screenshots/1.png" width=30% height=30%/>
-  <img src="./screenshots/2.png" width=30% height=30%/>
-  <img src="./screenshots/3.png" width=30% height=30%/>
+  <img src="./screenshort/3.png" width=30% height=30%/>
+  <img src="./screenshort/4.png" width=30% height=30%/>
+  <img src="./screenshort/5.png" width=30% height=30%/>
 </kbd>
 
 ---
