@@ -55,12 +55,9 @@ This app uses RapidAPI to retrieve price and product data. To set it up:
 - 🔍 Product search with keyword input
 - 📈 Real-time price comparison from multiple platforms
 - 📉 Price drop alerts
-- 🛒 Add to wishlist
 - 💬 Product details and reviews
 - 📲 Mobile & desktop support
 - 🌐 Cross-platform (Flutter Web, Android, iOS, Desktop)
-- 🧠 AI suggestions via Gemini (optional)
-- ⚡ WebSocket integration for future real-time price sync
 
 ---
 
